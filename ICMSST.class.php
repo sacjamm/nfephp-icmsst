@@ -60,4 +60,24 @@ class ICMSST {
 
 }
 
-// Tributacao
+//Exemplo de utilização
+$valorProduto = 79.99;
+$frete = 14.99;
+$seguro = 0.00;
+$despesas = 6.62;
+$desconto = 0.00;
+
+$aliquotaICMSInter = 4;
+
+$valorIPI = 0.00;
+$MVA = 37.22;
+$AliquotaICMSIntra = 18.42;
+echo '<pre>';
+$icmsst = new ICMSST;
+echo 'Base de Calculo ICMS: ' . $icmsst->CalculaBaseICMS($valorProduto, $frete, $seguro, $despesas, $desconto) . '<br>';
+echo 'Valor do ICMS: '.$icmsst->CalculaValorICMS($aliquotaICMSInter).'<br>';
+echo 'Base de Calculo ICMS ST: '.$icmsst->CalculaBaseICMSST($valorIPI,$MVA)."<br>";
+echo 'Valor ICMS ST: '. $icmsst->CalculaValorICMSST($AliquotaICMSIntra)."<br>";
+echo 'Valor Total da Nota: '. $icmsst->TotaldaNota();
+
+echo '</pre>';
